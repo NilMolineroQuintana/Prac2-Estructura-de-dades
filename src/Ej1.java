@@ -7,7 +7,6 @@ public class Ej1 {
             Engineer head = departments.get(i).getHead();
             if (head != null) {
                 engineers.add(head);
-
             }
         }
     }
