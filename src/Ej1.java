@@ -2,15 +2,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Ej1 {
-    public static void addHeadsToEngineers(List<Department> departments, List<Engineer> engineers) {
+    public static void addHeadsToEngineers(List<? extends Department> departments,List<? super Engineer> engineers) {
         for (int i = 0; i < departments.size(); i++) {
             Engineer head = departments.get(i).getHead();
-            if (head != null)
-            {
+            if (head != null) {
                 engineers.add(head);
+
             }
         }
     }
+
+    void printNames(List<? extends Person> lp){
+        for (int i = 0; i < lp.size(); i++) {
+            System.out.println(lp);
+        }
 
     public static void main(String[] args) {
         List<Department> departments = new LinkedList<>();
