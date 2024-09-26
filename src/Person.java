@@ -3,12 +3,12 @@ public class Person {
 
     public Person(String name)
     {
-        System.out.println("Se crea persona");
+        System.out.println("S'ha creat una persona");
         this.name = name;
     }
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 }
