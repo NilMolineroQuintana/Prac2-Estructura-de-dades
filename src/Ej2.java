@@ -1,26 +1,40 @@
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Ej2 {
-    public static <E> void modifyPrefix(LinkedList<E> src, LinkedList<E> trg)
+
+    public static <E,S> void modifyPrefix(LinkedList<E> src, LinkedList<S> trg)
     {
-        for (int i = 0; i < trg.size(); i++)
+        if (src != null && trg != null)
         {
-            if (i < src.size())
+            for (int i = 0; i < trg.size(); i++)
             {
-                trg.set(i,src.get(i));
-            }
-            else
-            {
-                break;
+                if (i < src.size())
+                {
+                     trg.set(i, (S) src.get(i));
+                }
+                else
+                {
+                    break;
+                }
             }
         }
-        return;
     }
 
     public static void main(String[] args) {
-        LinkedList<Character> src = new LinkedList<>(Arrays.asList('a', 'b', 'c', 'd'));
-        LinkedList<Character> trg = new LinkedList<>(Arrays.asList('x', 'y', 'z','0','1'));
-        modifyPrefix(src,trg);
+        LinkedList<Integer> src = new LinkedList<>();
+        src.add(1);
+        src.add(2);
+        src.add(3);
+
+        LinkedList<String> trg = new LinkedList<>();
+        trg.add("a");
+        trg.add("b");
+        trg.add("c");
+
+        System.out.println("Antes: src=" + src + ", trg=" + trg);
+        modifyPrefix(src, trg);
+        System.out.println("Después: src=" + src + ", trg=" + trg);
     }
 }
