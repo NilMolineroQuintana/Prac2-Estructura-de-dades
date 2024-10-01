@@ -5,11 +5,11 @@ public class Main {
     {
         //Ex1();
         //Ex2();
-        Ex3();
+        //Ex3();
         //Ex4();
         //Ex5();
         //Ex6();
-        //Ex7();
+        Ex7();
         //Ex8();
         //Ex9();
         //Ex10();
@@ -170,7 +170,14 @@ public class Main {
 
     public static void Ex7()
     {
-        System.out.println("------Ex7------");
+        List<Integer> ls = new LinkedList<>();
+        ls.add(2);
+        ls.add(20);
+        ls.add(30);
+        ls.add(1);
+        ls.add(11);
+        ls.add(10);
+        System.out.println(greaterThan(ls.iterator(),10));
     }
 
     public static <E extends Comparable<? super E>> List<E> greaterThan(Iterator<E> it, E sample)
@@ -178,8 +185,13 @@ public class Main {
         List<E> ls = new LinkedList<>();
         while (it.hasNext())
         {
-
+            E next = it.next();
+            if (next.compareTo(sample) > 0)
+            {
+                ls.add(next);
+            }
         }
+        return ls;
     }
 
     public static void Ex8()
