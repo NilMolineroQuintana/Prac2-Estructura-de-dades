@@ -4,15 +4,15 @@ public class Main {
     public static void main(String[] args)
     {
         Ex1();
-        //Ex2();
-        //Ex3();
-        //Ex4();
+        Ex2();
+        Ex3();
+        Ex4();
         //Ex5();
-        //Ex6();
+        Ex6();
         //Ex7();
         //Ex8();
         //Ex9();
-        //Ex10();
+        Ex10();
     }
 
     public static void Ex1()
@@ -66,6 +66,11 @@ public class Main {
         trg.add("a");
         trg.add("b");
         trg.add("c");
+        trg.add("d");
+        trg.add("e");
+        trg.add("f");
+        trg.add("g");
+        trg.add("h");
 
         System.out.println("Antes: src=" + src + ", trg=" + trg);
         modifyPrefix(src, trg);
