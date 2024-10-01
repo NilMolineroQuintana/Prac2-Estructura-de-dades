@@ -1,26 +1,57 @@
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args)
     {
-        //Ex1();
-        Ex2();
+        Ex1();
+        //Ex2();
         //Ex3();
-        Ex4();
+        //Ex4();
         //Ex5();
         //Ex6();
         //Ex7();
         //Ex8();
         //Ex9();
-        Ex10();
+        //Ex10();
     }
 
     public static void Ex1()
     {
         System.out.println("------Ex1------");
+        List<Department> departments = new ArrayList<>();
+        List<Engineer> engineers = new ArrayList<>(); // Puedes usar ArrayList o LinkedList
+
+        // Crear algunos ingenieros
+        Engineer engineer1 = new Engineer("Pepito");
+        Engineer engineer2 = new Engineer("Ana");
+        Engineer engineer3 = new Engineer("Carlos");
+
+        // Crear algunos departamentos
+        Department department1 = new Department(engineer1);
+        Department department2 = new Department(engineer2);
+        Department department3 = new Department(engineer3);
+
+        // Agregar los departamentos a la lista
+        departments.add(department1);
+        departments.add(department2);
+        departments.add(department3);
+
+        addHeadsToEngineers(departments, engineers);
+        printNames(engineers);
+    }
+
+    public static void addHeadsToEngineers(List<Department> ldpt,List<? super Engineer> leng) {
+        Iterator<Department> it = ldpt.iterator();
+        while (it.hasNext()){
+            leng.add(it.next().getHead());
+        }
+    }
+
+    public static void printNames(List<? extends Person> lp) {
+        Iterator<? extends Person> itr = lp.iterator();
+        while (itr.hasNext()) {
+            System.out.println(itr.next());
+        }
     }
 
     public static void Ex2()
