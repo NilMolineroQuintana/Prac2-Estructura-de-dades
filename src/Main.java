@@ -3,9 +3,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args)
     {
-        Ex1();
+        //Ex1();
         //Ex2();
-        //Ex3();
+        Ex3();
         //Ex4();
         //Ex5();
         //Ex6();
@@ -93,6 +93,11 @@ public class Main {
     public static void Ex3()
     {
         System.out.println("------Ex3------");
+        MyDate md1 = new MyDate(10);
+        MyDate md2 = new MyDate(12);
+        MyDate md3 = new MyDate(10);
+        System.out.println("md1 i md2 són iguals? " + md1.equals(md2));
+        System.out.println("md1 i md3 són iguals? " + md1.equals(md3));
     }
 
     public static void Ex4()
