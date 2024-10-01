@@ -173,6 +173,15 @@ public class Main {
         System.out.println("------Ex7------");
     }
 
+    public static <E extends Comparable<? super E>> List<E> greaterThan(Iterator<E> it, E sample)
+    {
+        List<E> ls = new LinkedList<>();
+        while (it.hasNext())
+        {
+
+        }
+    }
+
     public static void Ex8()
     {
         System.out.println("------Ex8------");
