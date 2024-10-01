@@ -24,18 +24,16 @@ public class ContactAgenda {
 
     public void remove(String name)
     {
-
-    }
-
-    public void showAgenda()
-    {
-        System.out.println("Contacts");
-        System.out.println("---------");
         Iterator<Contact> it = list.iterator();
+
         while (it.hasNext())
         {
-            System.out.println(it.next().toString());
-            System.out.println("---------");
+            Contact next = it.next();
+            if (next.name.equalsIgnoreCase(name))
+            {
+                it.remove();
+                break;
+            }
         }
     }
 
@@ -51,5 +49,17 @@ public class ContactAgenda {
             }
         }
         return null;
+    }
+
+    public void showAgenda()
+    {
+        System.out.println("Contacts");
+        System.out.println("---------");
+        Iterator<Contact> it = list.iterator();
+        while (it.hasNext())
+        {
+            System.out.println(it.next().toString());
+            System.out.println("---------");
+        }
     }
 }
