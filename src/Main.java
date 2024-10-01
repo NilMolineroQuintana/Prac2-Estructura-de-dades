@@ -47,11 +47,12 @@ public class Main {
         }
     }
 
-    void printNames(List<? extends Person> lp) {
+    public static void printNames(List<? extends Person> lp) {
         Iterator<? extends Person> itr = lp.iterator();
         while (itr.hasNext()) {
             System.out.println(itr.next());
         }
+    }
 
     public static void Ex2()
     {
