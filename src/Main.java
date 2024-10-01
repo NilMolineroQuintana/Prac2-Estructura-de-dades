@@ -50,7 +50,7 @@ public class Main {
     public static void printNames(List<? extends Person> lp) {
         Iterator<? extends Person> itr = lp.iterator();
         while (itr.hasNext()) {
-            System.out.println(itr.next());
+            System.out.println(itr.next().getName());
         }
     }
 
