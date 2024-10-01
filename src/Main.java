@@ -3,16 +3,16 @@ import java.util.*;
 public class Main {
     public static void main(String[] args)
     {
-        Ex1();
-        Ex2();
+        //Ex1();
+        //Ex2();
         Ex3();
-        Ex4();
+        //Ex4();
         //Ex5();
-        Ex6();
+        //Ex6();
         //Ex7();
         //Ex8();
         //Ex9();
-        Ex10();
+        //Ex10();
     }
 
     public static void Ex1()
@@ -66,11 +66,6 @@ public class Main {
         trg.add("a");
         trg.add("b");
         trg.add("c");
-        trg.add("d");
-        trg.add("e");
-        trg.add("f");
-        trg.add("g");
-        trg.add("h");
 
         System.out.println("Antes: src=" + src + ", trg=" + trg);
         modifyPrefix(src, trg);
@@ -98,6 +93,11 @@ public class Main {
     public static void Ex3()
     {
         System.out.println("------Ex3------");
+        MyDate md1 = new MyDate(10);
+        MyDate md2 = new MyDate(12);
+        MyDate md3 = new MyDate(10);
+        System.out.println("md1 i md2 són iguals? " + md1.equals(md2));
+        System.out.println("md1 i md3 són iguals? " + md1.equals(md3));
     }
 
     public static void Ex4()
