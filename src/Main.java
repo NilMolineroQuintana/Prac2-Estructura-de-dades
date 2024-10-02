@@ -10,7 +10,7 @@ public class Main {
         Ex5();
         Ex6();
         Ex7();
-        //Ex8();
+        Ex8();
         //Ex9();
         Ex10();
     }
@@ -203,6 +203,8 @@ public class Main {
     public static void Ex8()
     {
         System.out.println("------Ex8------");
+        System.out.println("a) Fals. Ja que primer de tot food no implementa la interficie 'Comparable' per tant ja donaria error, i a més Food es una classe abstracta i per tant no es pot instanciar.");
+        System.out.println("b) Fals. En el method1 no dona problemes ja que el 'Comparable' no necessàriament ho ha d'implementar la clase que inserim sino un supertipus com per exemple 'Meat', però al method2 donaria error ja que 'BigBurguer' no implementa 'Comparable'.");
     }
 
     public static void Ex9()
