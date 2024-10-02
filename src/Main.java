@@ -3,16 +3,16 @@ import java.util.*;
 public class Main {
     public static void main(String[] args)
     {
-        //Ex1();
-        //Ex2();
-        //Ex3();
-        //Ex4();
-        //Ex5();
-        //Ex6();
+        Ex1();
+        Ex2();
+        Ex3();
+        Ex4();
+        Ex5();
+        Ex6();
         Ex7();
         //Ex8();
         //Ex9();
-        //Ex10();
+        Ex10();
     }
 
     public static void Ex1()
@@ -76,7 +76,9 @@ public class Main {
     {
         if (src != null && trg != null)
         {
-            for (int i = 0; i < trg.size(); i++)
+            Iterator<S> it = trg.iterator();
+            int i = 0;
+            while (it.hasNext())
             {
                 if (i < src.size())
                 {
@@ -86,6 +88,7 @@ public class Main {
                 {
                     break;
                 }
+                i++;
             }
         }
     }
@@ -116,7 +119,7 @@ public class Main {
         System.out.println(checkRange(l.iterator(),cmp,1,100));
     }
 
-    public static <E> boolean checkRange(Iterator<E> it, Comparator<E> cmp, E min, E max)
+    public static <E extends Comparable<? super E>> boolean checkRange(Iterator<E> it, Comparator<E> cmp, E min, E max)
     {
         while (it.hasNext())
         {
@@ -133,6 +136,8 @@ public class Main {
     public static void Ex5()
     {
         System.out.println("------Ex5------");
+        System.out.println("a) List<Snake> només es podria utlitzar el mètode que té Comparable<? super E> ja que qui implementa Comparable es Animal que es el super de Snake.");
+        System.out.println("b) List<Animal> podria utilitzar el mètode que té Comparable<E> ja que Animal si que l'implemenya.");
     }
 
     public static void Ex6()
@@ -147,7 +152,7 @@ public class Main {
         l1.add('e');
         l1.add('b');
         dedup(l1);
-        System.out.println(l1.toString());
+        System.out.println(l1);
     }
 
     public static <E> void dedup(List<E> list)
@@ -170,6 +175,7 @@ public class Main {
 
     public static void Ex7()
     {
+        System.out.println("------Ex7------");
         List<Integer> ls = new LinkedList<>();
         ls.add(2);
         ls.add(20);
@@ -197,6 +203,8 @@ public class Main {
     public static void Ex8()
     {
         System.out.println("------Ex8------");
+        System.out.println("");
+
     }
 
     public static void Ex9()
