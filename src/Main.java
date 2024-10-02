@@ -119,7 +119,7 @@ public class Main {
         System.out.println(checkRange(l.iterator(),cmp,1,100));
     }
 
-    public static <E extends Comparable<? super E>> boolean checkRange(Iterator<E> it, Comparator<E> cmp, E min, E max)
+    public static <E> boolean checkRange(Iterator<E> it, Comparator<E> cmp, E min, E max)
     {
         while (it.hasNext())
         {
