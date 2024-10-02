@@ -203,8 +203,6 @@ public class Main {
     public static void Ex8()
     {
         System.out.println("------Ex8------");
-        System.out.println("");
-
     }
 
     public static void Ex9()
