@@ -3,7 +3,6 @@ public class Person {
 
     public Person(String name)
     {
-        System.out.println("S'ha creat una persona");
         this.name = name;
     }
 
