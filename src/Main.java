@@ -1,3 +1,5 @@
+import com.sun.security.jgss.InquireSecContextPermission;
+
 import java.util.*;
 
 public class Main {
@@ -11,7 +13,7 @@ public class Main {
         Ex6();
         Ex7();
         Ex8();
-        //Ex9();
+        Ex9();
         Ex10();
     }
 
@@ -210,6 +212,29 @@ public class Main {
     public static void Ex9()
     {
         System.out.println("------Ex9------");
+        Storage<Number> number1 = new Storage<>();
+            number1.additem(1);
+            number1.additem(2);
+
+        Storage<Number> number2 = new Storage<>();
+            number2.additem(1.5);
+            number2.additem(2.5);
+
+        Storage<Integer> integer = new Storage<>();
+            integer.additem(1);
+            integer.additem(2);
+
+        /*
+            Storage<Integer> integer2 = new Storage<>();
+            integer2.additem(1.5);
+            integer2.additem(2.5);
+         */
+
+        number2.copyTo(number1);
+
+
+        System.out.println("Es pot introduir un 'Number' dins d'un 'Integer' només en el cas de que el number sigui un 'Integer'. Ja que 'Integer' és subtipus de 'Number' però 'Number' no és supertipus de 'Integer'");
+        System.out.println("Es pot afegir un Integer dins d'un storage de 'Number', ja que 'Number' es un supertipus de 'Integer' i per tant podriem fer un cast up sense problema.");
     }
 
     public static void Ex10()
