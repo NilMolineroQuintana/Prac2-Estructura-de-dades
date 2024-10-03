@@ -108,7 +108,7 @@ public class Main {
     public static void Ex4()
     {
         System.out.println("------Ex4------");
-        List<Integer> l = new LinkedList<>();
+        List<Integer> l = new ArrayList<>();
         l.add(1);
         l.add(50);
         l.add(100);
@@ -145,7 +145,7 @@ public class Main {
     public static void Ex6()
     {
         System.out.println("------Ex6------");
-        List<Character> l1 = new LinkedList<>();
+        List<Character> l1 = new ArrayList<>();
         l1.add('a');
         l1.add('b');
         l1.add('b');
@@ -178,7 +178,7 @@ public class Main {
     public static void Ex7()
     {
         System.out.println("------Ex7------");
-        List<Integer> ls = new LinkedList<>();
+        List<Integer> ls = new ArrayList<>();
         ls.add(2);
         ls.add(20);
         ls.add(30);
@@ -190,7 +190,7 @@ public class Main {
 
     public static <E extends Comparable<? super E>> List<E> greaterThan(Iterator<E> it, E sample)
     {
-        List<E> ls = new LinkedList<>();
+        List<E> ls = new ArrayList<>();
         while (it.hasNext())
         {
             E next = it.next();
