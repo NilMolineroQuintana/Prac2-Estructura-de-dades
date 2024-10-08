@@ -63,15 +63,16 @@ public class Main {
         src.add(1);
         src.add(2);
         src.add(3);
+        src.add(4);
 
         LinkedList<String> trg = new LinkedList<>();
         trg.add("a");
         trg.add("b");
         trg.add("c");
 
-        System.out.println("Antes: src=" + src + ", trg=" + trg);
+        System.out.println("Abans: src=" + src + ", trg=" + trg);
         modifyPrefix(src, trg);
-        System.out.println("Después: src=" + src + ", trg=" + trg);
+        System.out.println("Després: src=" + src + ", trg=" + trg);
     }
 
     public static <E,S> void modifyPrefix(LinkedList<E> src, LinkedList<S> trg)
@@ -90,6 +91,7 @@ public class Main {
                 {
                     break;
                 }
+                it.next();
                 i++;
             }
         }
