@@ -15,6 +15,7 @@ public class ContactAgenda {
         if (search(c.name) == null)
         {
             list.add(c);
+            System.out.println("Contact added!");
         }
         else
         {
@@ -32,6 +33,7 @@ public class ContactAgenda {
             if (next.name.equalsIgnoreCase(name))
             {
                 it.remove();
+                System.out.println("Contact removed!");
                 break;
             }
         }

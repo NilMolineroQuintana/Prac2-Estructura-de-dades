@@ -102,9 +102,11 @@ public class Main {
     public static void Ex3()
     {
         System.out.println("------Ex3------");
+
         MyDate md1 = new MyDate(10);
         MyDate md2 = new MyDate(12);
         MyDate md3 = new MyDate(10);
+
         System.out.println("md1 i md2 són iguals? " + md1.equals(md2));
         System.out.println("md1 i md3 són iguals? " + md1.equals(md3));
         System.out.println("");
@@ -113,6 +115,7 @@ public class Main {
     public static void Ex4()
     {
         System.out.println("------Ex4------");
+
         List<Integer> l = new ArrayList<>();
         l.add(1);
         l.add(20);
@@ -121,12 +124,14 @@ public class Main {
         l.add(99);
         l.add(61);
         l.add(40);
+
         Comparator<Integer> cmp = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1.compareTo(o2);
             }
         };
+
         System.out.println(checkRange(l.iterator(),cmp,1,100));
         System.out.println("");
     }
@@ -147,6 +152,7 @@ public class Main {
     public static void Ex5()
     {
         System.out.println("------Ex5------");
+        //Revisar
         System.out.println("a) List<Snake> només es podria utlitzar el mètode que té Comparable<? super E> ja que qui implementa Comparable es Animal que es el super de Snake.");
         System.out.println("b) List<Animal> podria utilitzar els 2 mètodes ja que Animal implementa Comparable y per tant pot cridar a la clase que té <Comparable <E>> ja implementa Comparable, a més l'altra funció acepta qualsevol super tipus que utlitzi Comparable i Animal ja la té.");
         System.out.println("");
@@ -155,6 +161,7 @@ public class Main {
     public static void Ex6()
     {
         System.out.println("------Ex6------");
+
         List<Character> l1 = new ArrayList<>();
         l1.add('a');
         l1.add('b');
@@ -163,9 +170,11 @@ public class Main {
         l1.add('d');
         l1.add('e');
         l1.add('b');
+
         List<Character> l2 = new ArrayList<>();
+
         dedup(l1); // Prova mostra
-        dedup(l2); // Per comprovar els casos que pot trencar això
+        dedup(l2); // Per comprovar algun dels casos que pot trencar el mètode
         System.out.println(l1);
         System.out.println(l2);
         System.out.println("");
@@ -192,15 +201,21 @@ public class Main {
     public static void Ex7()
     {
         System.out.println("------Ex7------");
-        List<Integer> ls = new ArrayList<>();
-        ls.add(90);
-        ls.add(10);
-        ls.add(9);
-        ls.add(16);
-        ls.add(89);
-        ls.add(71);
-        ls.add(40);
-        System.out.println(greaterThan(ls.iterator(),70));
+
+        List<Integer> l1 = new ArrayList<>();
+        l1.add(90);
+        l1.add(10);
+        l1.add(9);
+        l1.add(16);
+        l1.add(89);
+        l1.add(71);
+        l1.add(40);
+
+        List<Integer> l2 = new ArrayList<>();
+        l2.add(5);
+
+        System.out.println(greaterThan(l1.iterator(),70));
+        System.out.println(greaterThan(l2.iterator(),70));
         System.out.println("");
     }
 
@@ -221,6 +236,8 @@ public class Main {
     public static void Ex8()
     {
         System.out.println("------Ex8------");
+
+        //Revisar
         System.out.println("a) Fals. Ja que primer de tot food no implementa la interficie 'Comparable' per tant ja donaria error, i a més Food es una classe abstracta i per tant no es pot instanciar.");
         System.out.println("b) Fals. En el method1 no dona problemes ja que el 'Comparable' no necessàriament ho ha d'implementar la clase que inserim sino un supertipus com per exemple 'Meat', però al method2 donaria error ja que 'BigBurguer' no implementa 'Comparable'.");
         System.out.println("");
@@ -230,16 +247,16 @@ public class Main {
     {
         System.out.println("------Ex9------");
         Storage<Number> number1 = new Storage<>();
-            number1.additem(1);
-            number1.additem(2);
+        number1.additem(1);
+        number1.additem(2);
 
         Storage<Number> number2 = new Storage<>();
-            number2.additem(1.5);
-            number2.additem(2.5);
+        number2.additem(1.5);
+        number2.additem(2.5);
 
         Storage<Integer> integer = new Storage<>();
-            integer.additem(1);
-            integer.additem(2);
+        integer.additem(1);
+        integer.additem(2);
 
         /*
             Storage<Integer> integer2 = new Storage<>();
@@ -250,20 +267,34 @@ public class Main {
         number2.copyTo(number1);
 
 
-        System.out.println("Es pot introduir un 'Number' dins d'un 'Integer' només en el cas de que el number sigui un 'Integer'. Ja que 'Integer' és subtipus de 'Number' però 'Number' no és supertipus de 'Integer'");
-        System.out.println("Es pot afegir un Integer dins d'un storage de 'Number', ja que 'Number' es un supertipus de 'Integer' i per tant podriem fer un cast up sense problema.");
+        System.out.println("No es pot introduir un 'Number' dins d'un 'Storage<Integer>' tret que aquest 'Number' sigui un 'Integer', ja que 'Integer' és un subtipus de 'Number', però 'Number' no és un subtipus de 'Integer'.");
+        System.out.println("Sí que es pot afegir un 'Integer' dins d'un 'Storage<Number>', ja que 'Number' és el supertipus de 'Integer', per la qual cosa és possible realitzar un cast up.");
+
         System.out.println("");
     }
 
     public static void Ex10()
     {
         System.out.println("------Ex10------");
+
         ContactAgenda CA = new ContactAgenda();
+
         Contact nil = new Contact("Nil", "611437607");
-        Contact miguel = new Contact("Miguel","639845607");
+        Contact test = new Contact("Test","123456789");
+        Contact removeTest = new Contact("removeTest","987654321");
+
         CA.add(nil);
-        CA.add(miguel);
+        CA.add(test);
+        CA.add(removeTest);
+
         CA.showAgenda();
+
+        CA.remove("removeTest");
+
+        CA.showAgenda();
+
+        //Preguntar profe
+
         System.out.println("");
     }
 }
