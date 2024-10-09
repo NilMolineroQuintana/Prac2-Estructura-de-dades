@@ -40,6 +40,7 @@ public class Main {
 
         addHeadsToEngineers(departments, engineers);
         printNames(engineers);
+        System.out.println("");
     }
 
     public static void addHeadsToEngineers(List<Department> ldpt,List<? super Engineer> leng) {
@@ -73,6 +74,7 @@ public class Main {
         System.out.println("Abans: src=" + src + ", trg=" + trg);
         modifyPrefix(src, trg);
         System.out.println("Després: src=" + src + ", trg=" + trg);
+        System.out.println("");
     }
 
     public static <E,S> void modifyPrefix(LinkedList<E> src, LinkedList<S> trg)
@@ -105,6 +107,7 @@ public class Main {
         MyDate md3 = new MyDate(10);
         System.out.println("md1 i md2 són iguals? " + md1.equals(md2));
         System.out.println("md1 i md3 són iguals? " + md1.equals(md3));
+        System.out.println("");
     }
 
     public static void Ex4()
@@ -112,8 +115,12 @@ public class Main {
         System.out.println("------Ex4------");
         List<Integer> l = new ArrayList<>();
         l.add(1);
-        l.add(50);
-        l.add(100);
+        l.add(20);
+        l.add(7);
+        l.add(6);
+        l.add(99);
+        l.add(61);
+        l.add(40);
         Comparator<Integer> cmp = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
@@ -121,6 +128,7 @@ public class Main {
             }
         };
         System.out.println(checkRange(l.iterator(),cmp,1,100));
+        System.out.println("");
     }
 
     public static <E> boolean checkRange(Iterator<E> it, Comparator<E> cmp, E min, E max)
@@ -136,12 +144,12 @@ public class Main {
         return true;
     }
 
-
     public static void Ex5()
     {
         System.out.println("------Ex5------");
         System.out.println("a) List<Snake> només es podria utlitzar el mètode que té Comparable<? super E> ja que qui implementa Comparable es Animal que es el super de Snake.");
-        System.out.println("b) List<Animal> podria utilitzar el mètode que té Comparable<E> ja que Animal si que l'implemenya.");
+        System.out.println("b) List<Animal> podria utilitzar els 2 mètodes ja que Animal implementa Comparable y per tant pot cridar a la clase que té <Comparable <E>> ja implementa Comparable, a més l'altra funció acepta qualsevol super tipus que utlitzi Comparable i Animal ja la té.");
+        System.out.println("");
     }
 
     public static void Ex6()
@@ -155,8 +163,12 @@ public class Main {
         l1.add('d');
         l1.add('e');
         l1.add('b');
-        dedup(l1);
+        List<Character> l2 = new ArrayList<>();
+        dedup(l1); // Prova mostra
+        dedup(l2); // Per comprovar els casos que pot trencar això
         System.out.println(l1);
+        System.out.println(l2);
+        System.out.println("");
     }
 
     public static <E> void dedup(List<E> list)
@@ -181,13 +193,15 @@ public class Main {
     {
         System.out.println("------Ex7------");
         List<Integer> ls = new ArrayList<>();
-        ls.add(2);
-        ls.add(20);
-        ls.add(30);
-        ls.add(1);
-        ls.add(11);
+        ls.add(90);
         ls.add(10);
-        System.out.println(greaterThan(ls.iterator(),10));
+        ls.add(9);
+        ls.add(16);
+        ls.add(89);
+        ls.add(71);
+        ls.add(40);
+        System.out.println(greaterThan(ls.iterator(),70));
+        System.out.println("");
     }
 
     public static <E extends Comparable<? super E>> List<E> greaterThan(Iterator<E> it, E sample)
@@ -209,6 +223,7 @@ public class Main {
         System.out.println("------Ex8------");
         System.out.println("a) Fals. Ja que primer de tot food no implementa la interficie 'Comparable' per tant ja donaria error, i a més Food es una classe abstracta i per tant no es pot instanciar.");
         System.out.println("b) Fals. En el method1 no dona problemes ja que el 'Comparable' no necessàriament ho ha d'implementar la clase que inserim sino un supertipus com per exemple 'Meat', però al method2 donaria error ja que 'BigBurguer' no implementa 'Comparable'.");
+        System.out.println("");
     }
 
     public static void Ex9()
@@ -237,6 +252,7 @@ public class Main {
 
         System.out.println("Es pot introduir un 'Number' dins d'un 'Integer' només en el cas de que el number sigui un 'Integer'. Ja que 'Integer' és subtipus de 'Number' però 'Number' no és supertipus de 'Integer'");
         System.out.println("Es pot afegir un Integer dins d'un storage de 'Number', ja que 'Number' es un supertipus de 'Integer' i per tant podriem fer un cast up sense problema.");
+        System.out.println("");
     }
 
     public static void Ex10()
@@ -248,6 +264,7 @@ public class Main {
         CA.add(nil);
         CA.add(miguel);
         CA.showAgenda();
+        System.out.println("");
     }
 }
 
