@@ -40,7 +40,7 @@ public class Main {
 
         addHeadsToEngineers(departments, engineers);
         printNames(engineers);
-        System.out.println("");
+        System.out.println();
     }
 
     public static void addHeadsToEngineers(List<Department> ldpt,List<? super Engineer> leng) {
@@ -74,7 +74,7 @@ public class Main {
         System.out.println("Abans: src=" + src + ", trg=" + trg);
         modifyPrefix(src, trg);
         System.out.println("Després: src=" + src + ", trg=" + trg);
-        System.out.println("");
+        System.out.println();
     }
 
     public static <E,S> void modifyPrefix(LinkedList<E> src, LinkedList<S> trg)
@@ -109,7 +109,7 @@ public class Main {
 
         System.out.println("md1 i md2 són iguals? " + md1.equals(md2));
         System.out.println("md1 i md3 són iguals? " + md1.equals(md3));
-        System.out.println("");
+        System.out.println();
     }
 
     public static void Ex4()
@@ -133,7 +133,7 @@ public class Main {
         };
 
         System.out.println(checkRange(l.iterator(),cmp,1,100));
-        System.out.println("");
+        System.out.println();
     }
 
     public static <E> boolean checkRange(Iterator<E> it, Comparator<E> cmp, E min, E max)
@@ -152,10 +152,9 @@ public class Main {
     public static void Ex5()
     {
         System.out.println("------Ex5------");
-        //Revisar
-        System.out.println("a) List<Snake> només es podria utlitzar el mètode que té Comparable<? super E> ja que qui implementa Comparable es Animal que es el super de Snake.");
-        System.out.println("b) List<Animal> podria utilitzar els 2 mètodes ja que Animal implementa Comparable y per tant pot cridar a la clase que té <Comparable <E>> ja implementa Comparable, a més l'altra funció acepta qualsevol super tipus que utlitzi Comparable i Animal ja la té.");
-        System.out.println("");
+        System.out.println("a) En el cas d'una List<Snake, només es podria utilitzar el mètode que fa servir Comparable<? super E>, ja que qui implementa la interfície Comparable és la classe Animal, que és el supertipus de Snake. Com que Snake no implementa directament Comparable<Snake>, però hereta d'Animal, que sí és comparable amb si mateix, es compleix la condició de strongest2, permetent-ne la seva utilització.");
+        System.out.println("b) En el cas d'una List<Animal>, es poden utilitzar ambdós mètodes. Això es deu al fet que la classe Animal implementa la interfície Comparable<Animal>, complint així la restricció del mètode strongest1, que requereix que el tipus sigui comparable amb si mateix (Comparable<E>). A més, el mètode strongest2 permet comparar el tipus amb qualsevol supertipus que implementi Comparable, i com que Animal ja implementa Comparable<Animal>, també es compleix aquesta condició.");
+        System.out.println();
     }
 
     public static void Ex6()
@@ -177,7 +176,7 @@ public class Main {
         dedup(l2); // Per comprovar algun dels casos que pot trencar el mètode
         System.out.println(l1);
         System.out.println(l2);
-        System.out.println("");
+        System.out.println();
     }
 
     public static <E> void dedup(List<E> list)
@@ -216,7 +215,7 @@ public class Main {
 
         System.out.println(greaterThan(l1.iterator(),70));
         System.out.println(greaterThan(l2.iterator(),70));
-        System.out.println("");
+        System.out.println();
     }
 
     public static <E extends Comparable<? super E>> List<E> greaterThan(Iterator<E> it, E sample)
@@ -237,10 +236,10 @@ public class Main {
     {
         System.out.println("------Ex8------");
 
-        //Revisar
-        System.out.println("a) Fals. Ja que primer de tot food no implementa la interficie 'Comparable' per tant ja donaria error, i a més Food es una classe abstracta i per tant no es pot instanciar.");
-        System.out.println("b) Fals. En el method1 no dona problemes ja que el 'Comparable' no necessàriament ho ha d'implementar la clase que inserim sino un supertipus com per exemple 'Meat', però al method2 donaria error ja que 'BigBurguer' no implementa 'Comparable'.");
-        System.out.println("");
+        System.out.println("a) Fals. En primer lloc, la classe 'Food' no implementa la interfície 'Comparable', fet que ja generaria un error de compilació. A més, com que 'Food' és una classe abstracta, no es pot instanciar directament.");
+        System.out.println("b) Fals pel method2 i cert pel method1. En el method1 no hi ha problemes perquè la restricció de 'Comparable' es pot complir a través d'un supertipus, com per exemple 'Meat'. No obstant això, en el method2 donaria error perquè 'BigBurger' no implementa 'Comparable<BigBurger>', que és el requeriment específic del mètode.");
+
+        System.out.println();
     }
 
     public static void Ex9()
@@ -266,11 +265,10 @@ public class Main {
 
         number2.copyTo(number1);
 
+        System.out.println("No es pot afegir un 'Number' a un 'Storage<Integer>' perquè, encara que 'Integer' sigui un subtipus de 'Number', no tots els 'Number' són 'Integer'. 'Storage<Integer>' només accepta elements del tipus exacte 'Integer' o dels seus subtipus.");
+        System.out.println("Sí, es pot afegir un 'Integer' a un 'Storage<Number>' perquè 'Integer' és un subtipus de 'Number'. Això és possible gràcies a l'herència, ja que 'Storage<Number>' pot emmagatzemar qualsevol objecte que sigui un subtipus de 'Number'.");
 
-        System.out.println("No es pot introduir un 'Number' dins d'un 'Storage<Integer>' tret que aquest 'Number' sigui un 'Integer', ja que 'Integer' és un subtipus de 'Number', però 'Number' no és un subtipus de 'Integer'.");
-        System.out.println("Sí que es pot afegir un 'Integer' dins d'un 'Storage<Number>', ja que 'Number' és el supertipus de 'Integer', per la qual cosa és possible realitzar un cast up.");
-
-        System.out.println("");
+        System.out.println();
     }
 
     public static void Ex10()
@@ -295,7 +293,7 @@ public class Main {
 
         //Preguntar profe
 
-        System.out.println("");
+        System.out.println();
     }
 }
 

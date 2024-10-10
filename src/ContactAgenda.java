@@ -63,5 +63,6 @@ public class ContactAgenda {
             System.out.println(it.next().toString());
             System.out.println("---------");
         }
+        System.out.println();
     }
 }
