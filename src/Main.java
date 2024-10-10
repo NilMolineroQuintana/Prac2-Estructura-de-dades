@@ -1,5 +1,3 @@
-import com.sun.security.jgss.InquireSecContextPermission;
-
 import java.util.*;
 
 public class Main {
@@ -21,7 +19,7 @@ public class Main {
     {
         System.out.println("------Ex1------");
         List<Department> departments = new ArrayList<>();
-        List<Engineer> engineers = new ArrayList<>(); // Puedes usar ArrayList o LinkedList
+        List<Engineer> engineers = new ArrayList<>();
 
         // Crear algunos ingenieros
         Engineer engineer1 = new Engineer("Pepito");
