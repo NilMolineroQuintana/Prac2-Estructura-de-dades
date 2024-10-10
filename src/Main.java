@@ -243,25 +243,33 @@ public class Main {
     public static void Ex9()
     {
         System.out.println("------Ex9------");
+
+        // Creem un storage de tipus number
         Storage<Number> number1 = new Storage<>();
         number1.additem(1);
         number1.additem(2);
 
+        // Creem un altre storage de tipus number per probar després el mètode copyTo()
         Storage<Number> number2 = new Storage<>();
         number2.additem(1.5);
         number2.additem(2.5);
 
+        // Creem un Storage de tipus integer per despés mostrar que no es pot ficar un number en un integer
         Storage<Integer> integer = new Storage<>();
-        integer.additem(1);
-        integer.additem(2);
+        integer.additem(8);
+        integer.additem(9);
+
+        // Testejem el copyTo
+        number2.copyTo(number1);
+        integer.copyTo(number1);
 
         /*
-            Storage<Integer> integer2 = new Storage<>();
-            integer2.additem(1.5);
-            integer2.additem(2.5);
+        Aquest codi no funcionaria ja que number no es fill de Integer
+
+        number2.copyTo(integer);
+
          */
 
-        number2.copyTo(number1);
 
         System.out.println("No es pot afegir un 'Number' a un 'Storage<Integer>' perquè, encara que 'Integer' sigui un subtipus de 'Number', no tots els 'Number' són 'Integer'. 'Storage<Integer>' només accepta elements del tipus exacte 'Integer' o dels seus subtipus.");
         System.out.println("Sí, es pot afegir un 'Integer' a un 'Storage<Number>' perquè 'Integer' és un subtipus de 'Number'. Això és possible gràcies a l'herència, ja que 'Storage<Number>' pot emmagatzemar qualsevol objecte que sigui un subtipus de 'Number'.");
@@ -273,23 +281,28 @@ public class Main {
     {
         System.out.println("------Ex10------");
 
+        // Creem una agenda
         ContactAgenda CA = new ContactAgenda();
 
+        // Creem uns contactes de mostra
         Contact nil = new Contact("Nil", "611437607");
         Contact test = new Contact("Test","123456789");
-        Contact removeTest = new Contact("removeTest","987654321");
+        Contact removeTestContact = new Contact("removeTest","987654321");
 
+        // Proves add
         CA.add(nil);
         CA.add(test);
-        CA.add(removeTest);
+        CA.add(removeTestContact);
+        CA.add(removeTestContact); // Per comprovar el cas de que ja estigui a l'agenda
 
+        // Prova mostrar agenda
         CA.showAgenda();
 
-        CA.remove("removeTest");
+        CA.remove(removeTestContact);
+        CA.remove(removeTestContact); // Per comprovar el cas de que el contacte no existeixi a l'agenda
 
+        // Veiem que removeTestContact no existèix ja a l'agenda
         CA.showAgenda();
-
-        //Preguntar profe
 
         System.out.println();
     }

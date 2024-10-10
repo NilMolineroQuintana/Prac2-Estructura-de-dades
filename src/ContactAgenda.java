@@ -12,40 +12,40 @@ public class ContactAgenda {
 
     public void add(Contact c)
     {
-        if (search(c.name) == null)
+        if (search(c) == null)
         {
             list.add(c);
-            System.out.println("Contact added!");
+            System.out.println("Contact '" + c.name + "' added to agenda!");
         }
         else
         {
-            System.out.println("Already in contacts!");
+            System.out.println("'"+c.name+"' already in contacts!");
         }
     }
 
-    public void remove(String name)
+    public void remove(Contact c)
     {
         Iterator<Contact> it = list.iterator();
-
-        while (it.hasNext())
+        Contact found = search(c);
+        if (found != null)
         {
-            Contact next = it.next();
-            if (next.name.equalsIgnoreCase(name))
-            {
-                it.remove();
-                System.out.println("Contact removed!");
-                break;
-            }
+            list.remove(found);
+            System.out.println("Contact '" + c.name + "' removed!");
         }
+        else
+        {
+            System.out.println("Contact '" + c.name +"' not found in agenda!");
+        }
+
     }
 
-    public Contact search(String name)
+    public Contact search(Contact c)
     {
         Iterator<Contact> it = list.iterator();
         while (it.hasNext())
         {
             Contact next = it.next();
-            if (next.name.equalsIgnoreCase(name))
+            if (next.name.equalsIgnoreCase(c.name))
             {
                 return next;
             }
@@ -55,6 +55,7 @@ public class ContactAgenda {
 
     public void showAgenda()
     {
+        System.out.println();
         System.out.println("Contacts");
         System.out.println("---------");
         Iterator<Contact> it = list.iterator();
