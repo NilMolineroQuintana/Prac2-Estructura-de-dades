@@ -18,40 +18,43 @@ public class Main {
     public static void Ex1()
     {
         System.out.println("------Ex1------");
+
+        // Crear llista de tipus ArrayList de Department i de Engineer
         List<Department> departments = new ArrayList<>();
         List<Engineer> engineers = new ArrayList<>();
 
-        // Crear algunos ingenieros
+        // Crear alguns Engineers
         Engineer engineer1 = new Engineer("Pepito");
         Engineer engineer2 = new Engineer("Ana");
         Engineer engineer3 = new Engineer("Carlos");
 
-        // Crear algunos departamentos
+        // Crear alguns Departments amb els jefes asignats
         Department department1 = new Department(engineer1);
         Department department2 = new Department(engineer2);
         Department department3 = new Department(engineer3);
 
-        // Agregar los departamentos a la lista
+        // Agregar els Departaments a la lista de Deparments
         departments.add(department1);
         departments.add(department2);
         departments.add(department3);
 
+        // Crida de funcions
         addHeadsToEngineers(departments, engineers);
         printNames(engineers);
         System.out.println();
     }
 
-    public static void addHeadsToEngineers(List<Department> ldpt,List<? super Engineer> leng) {
-        Iterator<Department> it = ldpt.iterator();
+    public static void addHeadsToEngineers(List<Department> ldpt,List<? super Engineer> leng) { // S'introdueixen llista de Deparment i una llista de Engineers
+        Iterator<Department> it = ldpt.iterator(); // Iterador de la llista de Deparments
         while (it.hasNext()){
-            leng.add(it.next().getHead());
+            leng.add(it.next().getHead()); // Afegir a la llista de Engineers els jefes de Department
         }
     }
 
-    public static void printNames(List<? extends Person> lp) {
-        Iterator<? extends Person> itr = lp.iterator();
+    public static void printNames(List<? extends Person> lp) { // S'introdueïx una subclasse de Person (com ara Engineer)
+        Iterator<? extends Person> itr = lp.iterator(); // Iterador de la subclasse de Person
         while (itr.hasNext()) {
-            System.out.println(itr.next().getName());
+            System.out.println(itr.next().getName()); // Imprimeix el nom de tots els membres de la llista
         }
     }
 
