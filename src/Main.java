@@ -58,34 +58,42 @@ public class Main {
     public static void Ex2()
     {
         System.out.println("------Ex2------");
-        LinkedList<Integer> src = new LinkedList<>();
-        src.add(1);
-        src.add(2);
-        src.add(3);
-        src.add(4);
 
-        LinkedList<String> trg = new LinkedList<>();
-        trg.add("a");
-        trg.add("b");
-        trg.add("c");
+        // Creem llistes per probar-lo
+        LinkedList<Integer> src = new LinkedList<>();
+        src.add(2);
+        src.add(4);
+        src.add(6);
+        src.add(8);
+
+        LinkedList<Number> trg = new LinkedList<>();
+        trg.add(1.5);
+        trg.add(3.5);
+        trg.add(5.5);
+        trg.add(7.5);
+        trg.add(9.5);
 
         System.out.println("Abans: src=" + src + ", trg=" + trg);
+
+        // Utilitzem la funció
         modifyPrefix(src, trg);
+
         System.out.println("Després: src=" + src + ", trg=" + trg);
+
         System.out.println();
     }
 
-    public static <E,S> void modifyPrefix(LinkedList<E> src, LinkedList<S> trg)
+    public static <E> void modifyPrefix(LinkedList<? extends E> src, LinkedList<E> trg)
     {
         if (src != null && trg != null)
         {
-            Iterator<S> it = trg.iterator();
+            Iterator<E> it = trg.iterator();
             int i = 0;
             while (it.hasNext())
             {
                 if (i < src.size())
                 {
-                    trg.set(i, (S) src.get(i));
+                    trg.set(i, src.get(i));
                 }
                 else
                 {
@@ -101,12 +109,15 @@ public class Main {
     {
         System.out.println("------Ex3------");
 
+        // Creem MyDates de mostra
         MyDate md1 = new MyDate(10);
         MyDate md2 = new MyDate(12);
         MyDate md3 = new MyDate(10);
 
+        // Només ha de donar true si els 2 MyDates coincideixen en el mes
         System.out.println("md1 i md2 són iguals? " + md1.equals(md2));
         System.out.println("md1 i md3 són iguals? " + md1.equals(md3));
+
         System.out.println();
     }
 
@@ -114,14 +125,27 @@ public class Main {
     {
         System.out.println("------Ex4------");
 
-        List<Integer> l = new ArrayList<>();
-        l.add(1);
-        l.add(20);
-        l.add(7);
-        l.add(6);
-        l.add(99);
-        l.add(61);
-        l.add(40);
+        // Creem llistes per provar-lo
+        List<Integer> l1 = new ArrayList<>();
+        l1.add(1);
+        l1.add(20);
+        l1.add(7);
+        l1.add(6);
+        l1.add(99);
+        l1.add(61);
+        l1.add(40);
+
+        List<Integer> l2 = new ArrayList<>();
+        l2.add(1);
+        l2.add(2);
+        l2.add(11);
+        l2.add(22);
+        l2.add(45);
+        l2.add(91);
+        l2.add(7);
+
+        List<Integer> l3 = new ArrayList<>();
+        l3.add(1);
 
         Comparator<Integer> cmp = new Comparator<Integer>() {
             @Override
@@ -130,7 +154,11 @@ public class Main {
             }
         };
 
-        System.out.println(checkRange(l.iterator(),cmp,1,100));
+        //Executem el programa per les 3 llistes de mostra
+        System.out.println(checkRange(l1.iterator(),cmp,1,100));
+        System.out.println(checkRange(l2.iterator(),cmp,1,90));
+        System.out.println(checkRange(l3.iterator(),cmp,-100,0));
+
         System.out.println();
     }
 
@@ -150,8 +178,10 @@ public class Main {
     public static void Ex5()
     {
         System.out.println("------Ex5------");
+
         System.out.println("a) En el cas d'una List<Snake, només es podria utilitzar el mètode que fa servir Comparable<? super E>, ja que qui implementa la interfície Comparable és la classe Animal, que és el supertipus de Snake. Com que Snake no implementa directament Comparable<Snake>, però hereta d'Animal, que sí és comparable amb si mateix, es compleix la condició de strongest2, permetent-ne la seva utilització.");
         System.out.println("b) En el cas d'una List<Animal>, es poden utilitzar ambdós mètodes. Això es deu al fet que la classe Animal implementa la interfície Comparable<Animal>, complint així la restricció del mètode strongest1, que requereix que el tipus sigui comparable amb si mateix (Comparable<E>). A més, el mètode strongest2 permet comparar el tipus amb qualsevol supertipus que implementi Comparable, i com que Animal ja implementa Comparable<Animal>, també es compleix aquesta condició.");
+
         System.out.println();
     }
 
@@ -159,6 +189,7 @@ public class Main {
     {
         System.out.println("------Ex6------");
 
+        // Creem llista per provar-lo
         List<Character> l1 = new ArrayList<>();
         l1.add('a');
         l1.add('b');
@@ -168,12 +199,16 @@ public class Main {
         l1.add('e');
         l1.add('b');
 
+        // Creem llista per demostrar que no retorna null
         List<Character> l2 = new ArrayList<>();
+
+        System.out.println("Abans: l1=" + l1 + ", l2=" + l2);
 
         dedup(l1); // Prova mostra
         dedup(l2); // Per comprovar algun dels casos que pot trencar el mètode
-        System.out.println(l1);
-        System.out.println(l2);
+
+        System.out.println("Després: l1=" + l1 + ", l2=" + l2);
+
         System.out.println();
     }
 
@@ -186,7 +221,7 @@ public class Main {
             E next = iterator.next();
             if (prev != null && prev.equals(next))
             {
-                iterator.remove();
+                iterator.remove(); // Ho hem de eliminar desde l'iterador, ja que si ho fem directament desde la llista el iterador donarà problemes
             }
             else
             {
@@ -199,6 +234,7 @@ public class Main {
     {
         System.out.println("------Ex7------");
 
+        // Creem llista per provar-lo
         List<Integer> l1 = new ArrayList<>();
         l1.add(90);
         l1.add(10);
@@ -208,11 +244,13 @@ public class Main {
         l1.add(71);
         l1.add(40);
 
+        // Creem llista per provar el cas de que retorni una llista buida
         List<Integer> l2 = new ArrayList<>();
         l2.add(5);
 
         System.out.println(greaterThan(l1.iterator(),70));
         System.out.println(greaterThan(l2.iterator(),70));
+
         System.out.println();
     }
 
@@ -222,9 +260,9 @@ public class Main {
         while (it.hasNext())
         {
             E next = it.next();
-            if (next.compareTo(sample) > 0)
+            if (next.compareTo(sample) > 0) // Com el comodi E o algun supertipus seu ha de tindre implementat Comparable, llavor podem fer crida a una funció que es diu compareTo que prové de Comparable. Aquesta funció si next es major que sample la funció retorna un nombre positiu != 0.
             {
-                ls.add(next);
+                ls.add(next); // Simplement afegim a l'ArrayList els alements que compleixen la condició
             }
         }
         return ls;
