@@ -1,3 +1,5 @@
+// Codi fet per Guillem Alcoverro i Nil Molinero
+
 public class Contact {
     public String num;
     public String name;
@@ -5,16 +7,12 @@ public class Contact {
     public Contact(String name, String num)
     {
         this.name = name;
-        this.num = num.substring(0,9); //Limita caracteres
+        this.num = num.substring(0,9); // Limitem els caràcters a màxim 9 digits
     }
 
     public boolean equals(Contact c)
     {
-        if (num.equals(c.num) && name.equals(c.name))
-        {
-            return true;
-        }
-        return false;
+        return num.equals(c.num) && name.equals(c.name); // Comprovem que nom i telèfon siguin iguals
     }
 
     @Override
@@ -23,3 +21,5 @@ public class Contact {
         return "Name: "+name+"\nNum: "+num;
     }
 }
+
+// Codi fet per Guillem Alcoverro i Nil Molinero

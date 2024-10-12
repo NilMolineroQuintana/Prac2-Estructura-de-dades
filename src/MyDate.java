@@ -1,3 +1,5 @@
+// Codi fet per Guillem Alcoverro i Nil Molinero
+
 public class MyDate{
     public int month;
 
@@ -14,3 +16,5 @@ public class MyDate{
         return (((MyDate) dt).month == this.month);
     }
 }
+
+// Codi fet per Guillem Alcoverro i Nil Molinero

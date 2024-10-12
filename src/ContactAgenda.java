@@ -2,10 +2,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+// Codi fet per Guillem Alcoverro i Nil Molinero
+
 public class ContactAgenda {
     private List<Contact> list;
 
-    public ContactAgenda()
+    public ContactAgenda() // Constructor de la ContactAgenda
     {
         list = new LinkedList<>();
     }
@@ -45,25 +47,31 @@ public class ContactAgenda {
         while (it.hasNext())
         {
             Contact next = it.next();
-            if (next.name.equalsIgnoreCase(c.name))
+            if (next.name.equals(c.name))
             {
-                return next;
+                return next; // Si troba
             }
         }
-        return null;
+        return null; // En el cas que no trobi
     }
 
     public void showAgenda()
     {
         System.out.println();
+
         System.out.println("Contacts");
         System.out.println("---------");
+
         Iterator<Contact> it = list.iterator();
+
         while (it.hasNext())
         {
             System.out.println(it.next().toString());
             System.out.println("---------");
         }
+
         System.out.println();
     }
 }
+
+// Codi fet per Guillem Alcoverro i Nil Molinero

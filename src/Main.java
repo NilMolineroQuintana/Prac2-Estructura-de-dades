@@ -1,5 +1,7 @@
 import java.util.*;
 
+// Codi fet per Guillem Alcoverro i Nil Molinero
+
 public class Main {
     public static void main(String[] args)
     {
@@ -305,7 +307,7 @@ public class Main {
         integer.copyTo(number1);
 
         /*
-        Aquest codi no funcionaria ja que number no es fill de Integer
+        Aquest codi no funcionaria ja que number no es fill de Integer i donaria error de compilació
 
         number2.copyTo(integer);
 
@@ -339,6 +341,7 @@ public class Main {
         // Prova mostrar agenda
         CA.showAgenda();
 
+        // Proves remove
         CA.remove(removeTestContact);
         CA.remove(removeTestContact); // Per comprovar el cas de que el contacte no existeixi a l'agenda
 
@@ -349,3 +352,4 @@ public class Main {
     }
 }
 
+// Codi fet per Guillem Alcoverro i Nil Molinero
